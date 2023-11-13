@@ -1,11 +1,11 @@
 import { useState } from "react";
 import styled from "styled-components"
-const NumberSelector = () => {
+const NumberSelector = ({ error, selectedNumber, setSelectedNumber }) => {
     const array = [1, 2, 3, 4, 5, 6];
-    const [selectedNumber, setSelectedNumber] = useState();
 
     return (
         <NumberSelectorContainer>
+            <p className="error">{error}</p>
             <div className="flex">
                 {
                     array.map((value, i) => (
@@ -36,6 +36,9 @@ align-items: end;
 p{
     font-size: 24px;
     font-weight: 700px;
+}
+.error{
+    color: red;
 }
 `
 const Box = styled.div`
